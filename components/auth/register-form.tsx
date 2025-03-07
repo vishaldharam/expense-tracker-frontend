@@ -44,7 +44,7 @@ async function register(name: string, email: string, password: string) {
     }
 
     return { ok: true, message: "Registered successfully" };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Authentication failed:", error.message);
     return null;
   }

@@ -29,7 +29,7 @@ async function authenticate(email: string, password: string) {
       accessToken: result.accessToken,
       refreshToken: result.refreshToken,
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Authentication failed:", error.message);
     return null;
   }
@@ -104,7 +104,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: any) {
       if (user && token) {
         return {
           ...token,
