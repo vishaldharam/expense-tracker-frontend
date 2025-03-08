@@ -41,8 +41,12 @@ export function DashboardContent() {
     totalRemainingAmount += budget.remainingAmount;
   });
 
-  console.log("budget", getUserBudget.data);
-  const totalExpenses = 100;
+  let totalExpenses = 0;
+
+  getUserExpense?.data?.map((budget: any) => {
+    totalExpenses += budget.amount;
+  });
+
   const expensePercentage = (totalExpenses / totalBudget) * 100;
 
   const expensesByCategory = getExpensesByCategory(getUserExpense.data || []);
